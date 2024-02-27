@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color:  rgb(0, 0, 57);
+            color:  #e2deed;
+            text-align: center;
+        }     
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            color:black;
+            margin: 0 auto;
+            background-color: white;
+            margin-top: 100px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-group input {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #997c7c;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        p {
+            margin-top: 2%;
+            text-align: center;
+            color: black;
+        }
+
+        p a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .modal-content {
+            background-color: rgba(0, 71, 133, 0.782);
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+            border-radius: 5px;
+            position: relative;
+        }  
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <a href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+          </svg></a>
+        <h1>Sign Up</h1>
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="username" placeholder="Enter your username" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="Enter password" required>
+                <p id="passwordError" style="color: rgb(147, 0, 0); display: none;">Password must be at least 6 characters.</p>
+
+                <% if (message == "user already exists") { %>
+                    <p style="color: rgb(163, 0, 0);">User already exists</p>
+                <% } %>
+                <% if (message == "password must be at least 6 characters") { %>
+                    <p style="color: rgb(163, 0, 0);">Password must be at least 6 characters</p>
+                <% } %>
+            </div>
+            <button class="btn btn-dark btn-outline text-white" type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html>
